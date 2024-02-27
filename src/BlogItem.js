@@ -1,3 +1,4 @@
+/*一覧画面のブログ記事*/
 import './index.css';
 import posts from './data/posts'
 import Categories from './Categories'

@@ -1,3 +1,4 @@
+/*言語のカテゴリー*/
 import './index.css';
 import React from 'react';
 

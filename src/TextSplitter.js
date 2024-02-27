@@ -1,3 +1,4 @@
+/*改行するコンポーネント*/
 import React from 'react';
 
 const TextSplitter = ({text}) => {
