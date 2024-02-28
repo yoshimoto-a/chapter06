@@ -21,12 +21,12 @@ const BlogItem = () => {
                                     </div>
                                 </div>
                                 <p class="Home_postTitle text-xl mb-4 mt-2">{item.title}</p>
-                                <div class="Home_postBody text-base leading-relaxed"><TextSplitter text={item.content}></TextSplitter></div>
+                                <div class="Home_postBody text-base leading-relaxed line-clamp-2"><TextSplitter text={item.content}></TextSplitter></div>
                             </div>
                         </div>
                     </a>
                 </li>
-            ))};
+            ))}
             </ul>
         </div>
     )
