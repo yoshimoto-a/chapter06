@@ -8,6 +8,7 @@ import { Link } from 'react-router-dom';
 export const BlogItem = () => {
   return (
 		<div class="mx-auto max-w-screen-lg px-4 my-10">
+			test
 			<ul>
 				{posts.map((item) => (
 					<li class="flex flex-col list-none m-0 p-0" key={item.id}>
