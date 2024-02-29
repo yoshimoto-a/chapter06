@@ -6,19 +6,15 @@ import dayjs from "dayjs";
 export const Detail = () => {
   const { id } = useParams();
   const targetItem = posts.filter((item) => item.id == id)[0];
-  console.log(targetItem);
   return (
     <>
-      {console.log(targetItem)}
       <div class="mx-auto max-w-800px">
         <div class="flex flex-col p-4">
-          <div class="">
-            <img
-              src="https://placehold.jp/800x400.png"
-              alt=""
-              class="h-auto max-w-full"
-            ></img>
-          </div>
+          <img
+            src="https://placehold.jp/800x400.png"
+            alt=""
+            class="h-auto max-w-full"
+          ></img>
           <div class="p-4">
             <div class="flex justify-between">
               <div class="text-gray-600 text-xs">
