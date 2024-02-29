@@ -1,12 +1,16 @@
+import { BrowserRouter, Routes, Route } from "react-router-dom";
 import { SiteHeader } from "./SiteHeader";
 import { BlogItem } from "./BlogItem";
-import { BrowserRouter } from 'react-router-dom';
+import { Detail } from "./Detail";
 
 export const App = () => {
   return (
     <BrowserRouter>
       <SiteHeader />
-      <BlogItem />
+      <Routes>
+        <Route path="/" element={<BlogItem />} />
+        <Route path="/Detail/:id" element={<Detail />} />
+      </Routes>
     </BrowserRouter>
-  )
-}
+  );
+};
