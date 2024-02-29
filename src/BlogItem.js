@@ -17,7 +17,7 @@ export const BlogItem = () => {
 									<div class="flex justify-between">
 										<div class="text-gray-500 text-sm">{dayjs(item.createdAt).format("YYYY/MM/DD")}</div>
 										<div class="flex flex-wrap">
-												<Categories categories={item.categories}></Categories>
+											<Categories categories={item.categories}></Categories>
 										</div>
 									</div>
 									<p class="text-xl mb-4 mt-2">{item.title}</p>
