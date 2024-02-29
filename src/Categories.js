@@ -1,4 +1,4 @@
-/*言語のカテゴリーを表示*/
+/*言語のカテゴリー*/
 import './index.css';
 import React from 'react';
 
