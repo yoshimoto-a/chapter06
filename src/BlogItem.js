@@ -7,17 +7,24 @@ import { Link } from "react-router-dom";
 
 export const BlogItem = () => {
   const [posts, setPosts] = useState([]);
+  const [isLoading, setIsLoading] = useState(false);
+
   useEffect(() => {
     const fetcher = async () => {
+      setIsLoading(true);
       const resp = await fetch(
         "https://1hmfpsvto6.execute-api.ap-northeast-1.amazonaws.com/dev/posts"
       );
       const data = await resp.json();
       setPosts(data.posts);
-      console.log(data);
+      setIsLoading(false);
     };
     fetcher();
   }, []);
+
+  if (isLoading) return <div>読み込み中...</div>;
+  if (!posts) return <div>記事がありません</div>;
+
   return (
     <>
       <div class="mx-auto max-w-screen-lg px-4 my-10">

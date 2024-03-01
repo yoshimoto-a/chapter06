@@ -6,19 +6,23 @@ import { data } from "autoprefixer";
 
 export const Post = () => {
   const { id } = useParams();
-  const [post, setItem] = useState({});
+  const [post, setPost] = useState(null);
+  const [isLoading, setIsLoading] = useState(false);
 
   useEffect(() => {
     const fetcher = async () => {
+      setIsLoading(true);
       const resp = await fetch(
         `https://1hmfpsvto6.execute-api.ap-northeast-1.amazonaws.com/dev/posts/${id}`
       );
       const data = await resp.json();
-      setItem(data.post);
+      setPost(data.post);
+      setIsLoading(false);
     };
     fetcher();
-  }, []);
+  }, [id]);
 
+  if (isLoading) return <div>読み込み中...</div>;
   if (!post) return <div>記事がありません</div>;
 
   return (
@@ -35,7 +39,7 @@ export const Post = () => {
               <div className="text-gray-600 text-xs">
                 {dayjs(post.createdAt).format("YYYY/MM/DD")}
               </div>
-              <Categories categories={post.categories || []}></Categories>
+              <Categories categories={post.categories}></Categories>
             </div>
             <div className="text-lg mb-4 mt-2">{post.title}</div>
             <div
