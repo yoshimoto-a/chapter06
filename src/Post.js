@@ -1,32 +1,50 @@
 import { useParams } from "react-router-dom";
-import { posts } from "./data/posts";
+import { useState, useEffect } from "react";
 import { Categories } from "./Categories";
 import dayjs from "dayjs";
+import { data } from "autoprefixer";
 
 export const Post = () => {
   const { id } = useParams();
-  const targetItem = posts.find((item) => item.id == id);
-  if (!targetItem) return <div>記事が見つかりません</div>;
+  const [post, setPost] = useState(null);
+  const [isLoading, setIsLoading] = useState(true);
+
+  useEffect(() => {
+    const fetcher = async () => {
+      setIsLoading(true);
+      const resp = await fetch(
+        `https://1hmfpsvto6.execute-api.ap-northeast-1.amazonaws.com/dev/posts/${id}`
+      );
+      const data = await resp.json();
+      setPost(data.post);
+      setIsLoading(false);
+    };
+    fetcher();
+  }, [id]);
+
+  if (isLoading) return <div>読み込み中...</div>;
+  if (!post) return <div>記事がありません</div>;
+
   return (
     <>
-      <div class="mx-auto max-w-800px">
-        <div class="flex flex-col p-4">
+      <div className="mx-auto max-w-800px">
+        <div className="flex flex-col p-4">
           <img
             src="https://placehold.jp/800x400.png"
             alt=""
-            class="h-auto max-w-full"
+            className="h-auto max-w-full"
           ></img>
-          <div class="p-4">
-            <div class="flex justify-between">
-              <div class="text-gray-600 text-xs">
-                {dayjs(targetItem.createdAt).format("YYYY/MM/DD")}
+          <div className="p-4">
+            <div className="flex justify-between">
+              <div className="text-gray-600 text-xs">
+                {dayjs(post.createdAt).format("YYYY/MM/DD")}
               </div>
-              <Categories categories={targetItem.categories}></Categories>
+              <Categories categories={post.categories}></Categories>
             </div>
-            <div class="text-lg mb-4 mt-2">{targetItem.title}</div>
+            <div className="text-lg mb-4 mt-2">{post.title}</div>
             <div
-              class="text-base leading-relaxed"
-              dangerouslySetInnerHTML={{ __html: targetItem.content }}
+              className="text-base leading-relaxed"
+              dangerouslySetInnerHTML={{ __html: post.content }}
             ></div>
           </div>
         </div>
