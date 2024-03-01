@@ -11,7 +11,7 @@ export const BlogItem = () => {
       <ul>
         {posts.map((item) => (
           <li class="flex flex-col list-none m-0 p-0" key={item.id}>
-            <Link to={`/Detail/${item.id}`} class="text-gray-700 no-underline">
+            <Link to={`/post/${item.id}`} class="text-gray-700 no-underline">
               <div class="border border-gray-300 flex flex-row mb-8 p-4">
                 <div>
                   <div class="flex justify-between">

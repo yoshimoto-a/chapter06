@@ -1,7 +1,7 @@
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import { SiteHeader } from "./SiteHeader";
 import { BlogItem } from "./BlogItem";
-import { Detail } from "./Detail";
+import { Post } from "./Post";
 
 export const App = () => {
   return (
@@ -9,7 +9,7 @@ export const App = () => {
       <SiteHeader />
       <Routes>
         <Route path="/" element={<BlogItem />} />
-        <Route path="/Detail/:id" element={<Detail />} />
+        <Route path="/post/:id" element={<Post />} />
       </Routes>
     </BrowserRouter>
   );
