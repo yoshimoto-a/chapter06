@@ -7,7 +7,7 @@ import { Link } from "react-router-dom";
 
 export const BlogItem = () => {
   const [posts, setPosts] = useState([]);
-  const [isLoading, setIsLoading] = useState(false);
+  const [isLoading, setIsLoading] = useState(true);
 
   useEffect(() => {
     const fetcher = async () => {

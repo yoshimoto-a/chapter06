@@ -7,7 +7,7 @@ import { data } from "autoprefixer";
 export const Post = () => {
   const { id } = useParams();
   const [post, setPost] = useState(null);
-  const [isLoading, setIsLoading] = useState(false);
+  const [isLoading, setIsLoading] = useState(true);
 
   useEffect(() => {
     const fetcher = async () => {
