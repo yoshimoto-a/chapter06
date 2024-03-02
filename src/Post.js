@@ -2,7 +2,6 @@ import { useParams } from "react-router-dom";
 import { useState, useEffect } from "react";
 import { Categories } from "./Categories";
 import dayjs from "dayjs";
-import { data } from "autoprefixer";
 
 export const Post = () => {
   const { id } = useParams();
