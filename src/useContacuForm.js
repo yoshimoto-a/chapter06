@@ -22,13 +22,13 @@ export const useContactForm = () => {
     throw new Error("error");
   };
 
-  const onsubmit = async data => {
+  const onSubmit = async data => {
     const url =
       "https://1hmfpsvto6.execute-api.ap-northeast-1.amazonaws.com/dev/contacts";
     const prams = {
       body: JSON.stringify({
         name: data.name,
-        email: data.mail,
+        email: data.email,
         message: data.message,
       }),
       method: "POST",
@@ -51,7 +51,7 @@ export const useContactForm = () => {
 
   return {
     handleSubmit,
-    onsubmit,
+    onSubmit,
     resetForm,
     register,
     formState: { errors, isSubmitting },

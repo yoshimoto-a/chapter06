@@ -3,7 +3,7 @@ import { useContactForm } from "./useContacuForm";
 export const Contact = () => {
   const {
     handleSubmit,
-    onsubmit,
+    onSubmit,
     resetForm,
     register,
     formState: { errors, isSubmitting },
@@ -12,7 +12,7 @@ export const Contact = () => {
   return (
     <div class="max-w-[800px] mx-auto py-10">
       <h1 class="text-xl font-bold mb-10">問合わせフォーム</h1>
-      <form onSubmit={handleSubmit(onsubmit)} noValidate>
+      <form onSubmit={handleSubmit(onSubmit)} noValidate>
         <div class="flex justify-between items-center mb-6">
           <label for="name" class="w-[240px]">
             お名前
